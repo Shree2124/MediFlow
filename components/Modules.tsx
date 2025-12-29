@@ -133,27 +133,7 @@ export const AnalyticsModule: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Detailed Reports */}
-        <div className="bg-slate-900 p-10 rounded-[3rem] text-white flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative">
-          <div className="relative z-10 max-w-sm">
-            <div className="flex items-center gap-2 mb-4">
-              <TrendingUp className="text-indigo-400" />
-              <h3 className="text-indigo-300 text-xs font-black uppercase tracking-widest">Growth Projection</h3>
-            </div>
-            
-            <button className="mt-8 px-8 py-3 bg-white text-slate-900 rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-xl hover:scale-105 transition-transform">Download Strategic Deck</button>
-          </div>
-          
-          <div className="relative z-10 bg-white/5 backdrop-blur-md p-8 rounded-[2rem] border border-white/10 text-center w-full md:w-auto">
-            <p className="text-[10px] font-black uppercase text-indigo-300 tracking-widest mb-4">Patient Trust Score</p>
-            <div className="relative w-40 h-20 overflow-hidden mx-auto">
-              <div className="absolute w-40 h-40 border-[12px] border-emerald-500 rounded-full border-b-transparent"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-2 text-3xl font-black">9.4</div>
-            </div>
-            <p className="text-[9px] font-bold text-slate-400 uppercase mt-4">Industry Avg: 8.2</p>
-          </div>
-          <Activity size={300} className="absolute -right-20 -bottom-20 text-white/5 rotate-12" />
-        </div>
+        
       </div>
     </div>
   );

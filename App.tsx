@@ -51,10 +51,7 @@ const App: React.FC = () => {
             <p className="text-slate-500 mb-8 max-w-xs mx-auto text-sm leading-relaxed">
               Unified Hospital Information System for clinical, administrative, and financial excellence.
             </p>
-            <div className="flex items-center gap-2 text-indigo-600 font-bold bg-indigo-50 px-5 py-2.5 rounded-full text-xs uppercase tracking-widest border border-indigo-100">
-              <ShieldCheck size={18} />
-              <span>ISO 27001 SECURE</span>
-            </div>
+            
           </div>
           
           <div className="p-12 bg-white flex flex-col justify-center">
