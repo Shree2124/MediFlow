@@ -1,0 +1,8 @@
+{
+  "name": "MediFlow HMS",
+  "description": "A comprehensive Hospital Management System with role-based dashboards for Administrators, Doctors, Nurses, Patients, Receptionists, and Lab Technicians, featuring integrated AI assistance.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
