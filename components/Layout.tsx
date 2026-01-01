@@ -43,7 +43,6 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, children, activeModule,
         <div className="p-4 flex items-center justify-between border-b border-slate-100 h-16">
           {isSidebarOpen ? (
             <div className="flex items-center gap-2 text-indigo-600 font-bold text-xl overflow-hidden whitespace-nowrap">
-              <div className="min-w-[32px] w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white">H</div>
               <span>MediFlow HIS</span>
             </div>
           ) : (
