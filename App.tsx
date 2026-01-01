@@ -25,6 +25,13 @@ import {
   TestTube2,
 } from "lucide-react";
 
+interface Props {
+  imageName: string;
+}
+
+const DynamicImage: React.FC<Props> = ({ imageName }) => {
+  return <img src={`/public/assets/${imageName}`} alt={imageName} />;
+};
 
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -53,7 +60,7 @@ const App: React.FC = () => {
         <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 bg-white rounded-[2rem] shadow-2xl overflow-hidden relative z-10 border border-white/20">
           <div className="p-12 flex flex-col justify-center items-center text-center bg-slate-50 border-r border-slate-100">
             <div className="w-24 h-24 bg-blue-900 rounded-[2rem] flex items-center justify-center text-white mb-8 shadow-2xl shadow-indigo-200 rotate-3">
-              <img src="/assets/logo1.png" alt="Logo" />
+              <DynamicImage imageName="logo1.png" />
             </div>
             <h1 className="text-4xl font-black text-slate-900 mb-4 tracking-tight">
               MediFlow <span className="text-indigo-600">HIS</span>
