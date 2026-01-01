@@ -30,7 +30,7 @@ interface Props {
 }
 
 const DynamicImage: React.FC<Props> = ({ imageName }) => {
-  return <img src={`/public/assets/${imageName}`} alt={imageName} />;
+  return <img src={`/assets/${imageName}`} alt={imageName} />;
 };
 
 const App: React.FC = () => {
