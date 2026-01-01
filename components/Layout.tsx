@@ -1,8 +1,7 @@
-
-import React from 'react';
-import { UserRole, User } from '../types';
-import { ROLE_ICONS, MODULE_ICONS } from '../constants';
-import { LogOut, Bell, Search, Menu, X, LayoutDashboard } from 'lucide-react';
+import React from "react";
+import { UserRole, User } from "../types";
+import { ROLE_ICONS, MODULE_ICONS } from "../constants";
+import { LogOut, Bell, Search, Menu, X, LayoutDashboard } from "lucide-react";
 
 interface LayoutProps {
   user: User;
@@ -12,24 +11,37 @@ interface LayoutProps {
   setActiveModule: (module: string) => void;
 }
 
-const Layout: React.FC<LayoutProps> = ({ user, onLogout, children, activeModule, setActiveModule }) => {
+const Layout: React.FC<LayoutProps> = ({
+  user,
+  onLogout,
+  children,
+  activeModule,
+  setActiveModule,
+}) => {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
 
   const getModulesByRole = (role: UserRole) => {
-    const base = ['Dashboard'];
+    const base = ["Dashboard"];
     switch (role) {
       case UserRole.ADMINISTRATOR:
-        return [...base, 'Users', 'Inventory', 'Analytics', 'Insurance', 'Billing'];
+        return [
+          ...base,
+          "Users",
+          "Inventory",
+          "Analytics",
+          "Insurance",
+          "Billing",
+        ];
       case UserRole.DOCTOR:
-        return [...base, 'OPD', 'IPD', 'EMR', 'Pharmacy', 'Lab', 'Emergency'];
+        return [...base, "OPD", "IPD", "EMR", "Pharmacy", "Lab", "Emergency"];
       case UserRole.NURSE:
-        return [...base, 'IPD', 'Emergency', 'Pharmacy', 'Lab', 'EMR'];
+        return [...base, "IPD", "Emergency", "Pharmacy", "Lab", "EMR"];
       case UserRole.RECEPTIONIST:
-        return [...base, 'OPD', 'Emergency', 'Billing', 'Insurance'];
+        return [...base, "IPD", "OPD", "Emergency", "Billing", "Insurance"];
       case UserRole.LAB_TECHNICIAN:
-        return [...base, 'Lab', 'EMR'];
+        return [...base, "Lab", "EMR"];
       case UserRole.PATIENT:
-        return [...base, 'EMR', 'Billing', 'Pharmacy'];
+        return [...base, "EMR", "Billing", "Pharmacy"];
       default:
         return base;
     }
@@ -39,14 +51,21 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, children, activeModule,
 
   return (
     <div className="flex h-screen bg-slate-50 overflow-hidden">
-      <aside className={`${isSidebarOpen ? 'w-64' : 'w-20'} transition-all duration-300 ease-in-out bg-white border-r border-slate-200 flex flex-col shrink-0`}>
+      <aside
+        className={`${
+          isSidebarOpen ? "w-64" : "w-20"
+        } transition-all duration-300 ease-in-out bg-white border-r border-slate-200 flex flex-col shrink-0`}
+      >
         <div className="p-4 flex items-center justify-between border-b border-slate-100 h-16">
           {isSidebarOpen && (
             <div className="flex items-center gap-2 text-indigo-600 font-bold text-xl overflow-hidden whitespace-nowrap">
               <span>MediFlow HIS</span>
             </div>
           )}
-          <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="p-1 hover:bg-slate-100 rounded text-slate-500">
+          <button
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            className="p-1 hover:bg-slate-100 rounded text-slate-500"
+          >
             {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -57,13 +76,17 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, children, activeModule,
               key={mod}
               onClick={() => setActiveModule(mod)}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
-                activeModule === mod 
-                  ? 'bg-indigo-50 text-indigo-600 font-medium' 
-                  : 'text-slate-600 hover:bg-slate-100'
+                activeModule === mod
+                  ? "bg-indigo-50 text-indigo-600 font-medium"
+                  : "text-slate-600 hover:bg-slate-100"
               }`}
             >
-              <span className={activeModule === mod ? 'text-indigo-600' : 'text-slate-400'}>
-                {(MODULE_ICONS as any)[mod] || <LayoutDashboard size={20}/>}
+              <span
+                className={
+                  activeModule === mod ? "text-indigo-600" : "text-slate-400"
+                }
+              >
+                {(MODULE_ICONS as any)[mod] || <LayoutDashboard size={20} />}
               </span>
               {isSidebarOpen && <span className="text-sm">{mod}</span>}
             </button>
@@ -77,8 +100,12 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, children, activeModule,
             </div>
             {isSidebarOpen && (
               <div className="overflow-hidden">
-                <p className="text-xs font-bold truncate text-slate-900">{user.name}</p>
-                <p className="text-[10px] text-slate-500 uppercase tracking-tight">{user.role}</p>
+                <p className="text-xs font-bold truncate text-slate-900">
+                  {user.name}
+                </p>
+                <p className="text-[10px] text-slate-500 uppercase tracking-tight">
+                  {user.role}
+                </p>
               </div>
             )}
           </div>
@@ -104,10 +131,13 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, children, activeModule,
           </div>
           <div className="flex items-center gap-4">
             <div className="relative hidden md:block">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
-              <input 
-                type="text" 
-                placeholder="Global Search (Records, IDs)..." 
+              <Search
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                size={16}
+              />
+              <input
+                type="text"
+                placeholder="Global Search (Records, IDs)..."
                 className="w-64 pl-10 pr-4 py-1.5 bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 rounded-full text-xs transition-all"
               />
             </div>
