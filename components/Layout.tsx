@@ -41,12 +41,10 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, children, activeModule,
     <div className="flex h-screen bg-slate-50 overflow-hidden">
       <aside className={`${isSidebarOpen ? 'w-64' : 'w-20'} transition-all duration-300 ease-in-out bg-white border-r border-slate-200 flex flex-col shrink-0`}>
         <div className="p-4 flex items-center justify-between border-b border-slate-100 h-16">
-          {isSidebarOpen ? (
+          {isSidebarOpen && (
             <div className="flex items-center gap-2 text-indigo-600 font-bold text-xl overflow-hidden whitespace-nowrap">
               <span>MediFlow HIS</span>
             </div>
-          ) : (
-            <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white mx-auto">H</div>
           )}
           <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="p-1 hover:bg-slate-100 rounded text-slate-500">
             {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
