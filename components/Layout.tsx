@@ -29,7 +29,7 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, children, activeModule,
       case UserRole.LAB_TECHNICIAN:
         return [...base, 'Lab', 'EMR'];
       case UserRole.PATIENT:
-        return [...base, 'OPD', 'EMR', 'Billing', 'Pharmacy'];
+        return [...base, 'EMR', 'Billing', 'Pharmacy'];
       default:
         return base;
     }
